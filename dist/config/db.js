@@ -15,15 +15,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const MONGODB_URI = 'mongodb+srv://tenant:tenant512@tenants-data-record.l4tm3.mongodb.net/?retryWrites=true&w=majority&appName=tenants-data-record';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://tenant:tenant512@tenants-data-record.l4tm3.mongodb.net/?retryWrites=true&w=majority&appName=tenants-data-record';
+// Connect to MongoDB
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(MONGODB_URI);
         console.log('Connected to MongoDB!');
     }
     catch (error) {
-        console.log(error);
-        process.exit(0); // It will exit the process when having error
+        console.error('MongoDB connection error:', error);
+        process.exit(1); // Exit the process on error
     }
 });
 exports.default = connectDB;
