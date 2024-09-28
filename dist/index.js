@@ -14,7 +14,7 @@ const PORT = 4000;
 app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.json());
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow requests from this origin
+    origin: 'https://rentalify.netlify.app', // Allow requests from this origin
     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
     credentials: true,
 };

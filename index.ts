@@ -15,7 +15,7 @@ app.use(express.json());
 
 
 const corsOptions = {
-    origin: 'http://localhost:5173',  // Allow requests from this origin
+    origin: 'https://rentalify.netlify.app',  // Allow requests from this origin
     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
     credentials: true,
 };
